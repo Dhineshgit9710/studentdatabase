@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student DataBase</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Student Form</h1>
+        <form>
+            <table border="2" id="table1">
+                <tr>
+                    <td class="title">Name</td>
+                    <td><input id="n" type="text" placeholder="Enter your name" ></td>
+                </tr>
+                <tr>
+                    <td class="title">Age</td>
+                    <td><input id="a" type="number" placeholder="Enter your age" ></td>
+                </tr>
+                <tr>
+                    <td class="title">Gender</td>
+                    <td><input type="radio" name="gender" value="Male" onclick="rad(event)">Male
+                        <input type="radio" name=gender value="Female" onclick="rad(event)">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title">Course</td>
+                    <td>
+                        <select id="c" class="in">
+                            <option>Select your Course</option>
+                            <option value="HTML">HTML</option>
+                            <option value="CSS">CSS</option>
+                            <option value="JS">Java Script</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title">Email</td>
+                    <td><input id="e" type="email" placeholder="Enter your email"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="button" class="in" onclick="change()">Submit</button></td>
+                </tr>
+            </table>
+
+            <table border="2" id="table2">
+                <tr>
+                    <th class="title">Name</th>
+                    <th class="title">Age</th>
+                    <th class="title">Course</th>
+                    <th class="title">Gender</th>
+                    <th class="title">Email</th>
+                    <th class="title">Action</th>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        var G = ""
+        function rad(event) {
+             G = event.target.value
+        }
+        function change() {
+            var N = document.getElementById("n").value;
+            var A = document.getElementById("a").value;
+            var C = document.getElementById("c").value;
+            var E = document.getElementById("e").value;
+
+            var table = document.getElementById("table2");
+
+            var row = table.insertRow(1  );
+
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+
+            cell1.textContent = N;
+            cell2.innerHTML = A;
+            cell3.innerHTML = C;
+            cell4.innerHTML = G;
+            cell5.innerHTML = E;
+            cell6.innerHTML = "<button onclick='rem(event)'>Remove</button>";
+        }
+
+        function rem(event){
+            event.target.parentElement.parentElement.remove()
+        }
+
+    </script>
+
+</body>
+
+</html>
